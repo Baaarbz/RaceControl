@@ -3,6 +3,7 @@ package com.github.baaarbz.application;
 import com.github.baaarbz.model.Car;
 import com.github.baaarbz.model.Garage;
 import com.github.baaarbz.model.Race;
+import com.github.baaarbz.model.TypeRace;
 import com.github.baaarbz.util.Menu;
 
 import java.util.*;
@@ -16,33 +17,43 @@ public class Simulation {
     private static List<Car> carsToCompete;
     private static List<Car> pole;
 
-    public static void init() {
+    public static void initRace() {
         if (races.isEmpty()) {
             System.console().writer().println("There are not races registered");
         } else {
-            display();
+            if (Menu.askForConfirmation("Do you want the list of races? [y/N] ")) {
+                displayRaces();
+            }
             Race race = getRace();
             if (race == null) {
                 return;
             }
             getCompetitors(race);
+            pole = new ArrayList<>();
+            if (race.getTypeRace() == TypeRace.ELIMINATION) {
+                elimination();
+            } else {
+                standard();
+            }
+            displayWinners();
         }
     }
 
     private static void standard() {
         Collections.shuffle(carsToCompete);
-        for (int i = 0; i <= 3; i++) {
+        for (int i = 0; i < 3; i++) {
             pole.add(carsToCompete.get(i));
         }
     }
 
     private static void elimination() {
+        List<Car> temp = new ArrayList<>(carsToCompete);
         for (Car ignored : carsToCompete) {
-            Collections.shuffle(carsToCompete);
-            if (pole.size() > 3) {
-                carsToCompete.remove(0);
+            Collections.shuffle(temp);
+            if (temp.size() > 3) {
+                temp.remove(0);
             } else {
-                pole.add(carsToCompete.remove(0));
+                pole.add(temp.remove(0));
             }
         }
     }
@@ -57,18 +68,23 @@ public class Simulation {
         return null;
     }
 
-    private static void display() {
+    public static void displayRaces() {
         Comparator<Race> comparator = Comparator
                 .comparing(Race::isPrivate)
                 .thenComparing(Race::getTypeRace);
-        if (Menu.askForConfirmation("Do you want the list of races? [y/N] ")) {
-            races.stream()
-                    .sorted(comparator)
-                    .forEach(race -> System.console().writer().println("[" + races.indexOf(race) + "] - " + race));
-        }
+        races.stream()
+                .sorted(comparator)
+                .forEach(race -> System.console().writer().println("[" + races.indexOf(race) + "] - " + race));
+
+    }
+
+    private static void displayWinners() {
+        pole.forEach(System.console().writer()::println);
     }
 
     private static void getCompetitors(Race race) {
+        carsToCompete = new ArrayList<>();
+
         if (race.isPrivate()) {
             carsToCompete = cars.stream()
                     .filter(car -> car.getGarage().equals(race.getOwner()))
@@ -87,4 +103,6 @@ public class Simulation {
                     .collect(Collectors.toList());
         }
     }
+
+
 }

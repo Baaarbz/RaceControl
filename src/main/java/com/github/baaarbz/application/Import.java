@@ -42,10 +42,12 @@ public class Import {
             String row;
             while ((row = br.readLine()) != null) {
                 String[] carRow = row.split(",");
-                if (Register.searchGarage(carRow[2]) == null) {
-                    garages.add(new Garage(carRow[2]));
+                if (!carRow[0].equalsIgnoreCase("model")) {
+                    if (Register.searchGarage(carRow[2]) == null) {
+                        garages.add(new Garage(carRow[2]));
+                    }
+                    cars.add(new Car(carRow[1], carRow[0], Register.searchGarage(carRow[2])));
                 }
-                cars.add(new Car(carRow[0], carRow[1], Register.searchGarage(carRow[2])));
             }
         } catch (IOException e) {
             System.err.println(e.getMessage());

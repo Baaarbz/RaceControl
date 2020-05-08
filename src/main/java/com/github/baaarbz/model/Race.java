@@ -75,7 +75,7 @@ public class Race {
         if (isPrivate) {
             return "[PRIVATE - " + owner + "] " + name + "type of race: " + typeRace;
         } else {
-            return "[PUBLIC] " + name + "type of race: " + typeRace;
+            return "[PUBLIC] " + name + " | Type of race: " + typeRace;
         }
     }
 }

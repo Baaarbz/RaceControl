@@ -2,6 +2,7 @@ package com.github.baaarbz.util;
 
 import com.github.baaarbz.application.Import;
 import com.github.baaarbz.application.Register;
+import com.github.baaarbz.application.Simulation;
 import com.github.baaarbz.model.TypeRace;
 
 import static com.github.baaarbz.Application.*;
@@ -44,14 +45,16 @@ public class Menu {
                 Import.getListFiles().forEach(file -> System.console().writer().println(file.getFileName()));
                 break;
             case "list races":
-                races.forEach(System.console().writer()::println);
+                Simulation.displayRaces();
                 break;
             case "list tournaments":
                 tournaments.forEach(System.console().writer()::println);
                 break;
             case "sim help":
                 display(Messages.SIM_HELP);
+                break;
             case "sim race":
+                Simulation.initRace();
                 break;
             case "sim tournament":
                 break;

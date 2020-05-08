@@ -36,7 +36,7 @@ public class Register {
     }
 
     public static void race(TypeRace typeRace) {
-        boolean isPrivate = Menu.askForConfirmation("Is it a private race? [y/N]");
+        boolean isPrivate = Menu.askForConfirmation("Is it a private race? [y/N] ");
         String name = System.console().readLine("\t-Name: ");
         if (!isPrivate) {
             races.add(new Race(name, typeRace));
@@ -47,7 +47,7 @@ public class Register {
                     return;
                 }
             }
-            races.add(new Race(name, searchGarage(garage), TypeRace.STANDARD));
+            races.add(new Race(name, searchGarage(garage), typeRace));
         }
     }
 
@@ -62,7 +62,7 @@ public class Register {
     }
 
     public static boolean askForGarage(String garage) {
-        boolean answer = Menu.askForConfirmation("The garage: " + garage + " does not exists.\nDo you want to register it? [y/N]");
+        boolean answer = Menu.askForConfirmation("The garage: " + garage + " does not exists.\nDo you want to register it? [y/N] ");
         if (answer) {
             garages.add(new Garage(garage));
             return true;

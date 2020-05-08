@@ -1,25 +1,26 @@
-RX-8,Mazda,PredniSONE
-Altima,Nissan,Amazonian Colored Clay Foundation Broad Spectrum SPF 15 Sunscreen
-280ZX,Nissan,ENGERIX-B
-Grand Prix,Pontiac,Solodyn
-Navigator,Lincoln,NAPROXEN
-RX Hybrid,Lexus,"Nicotine Polacrilex, Coated Mint Flavor"
-Vandura G3500,GMC,GlucaGen HypoKit
-Toronado,Oldsmobile,Fast Freeze
-SLK-Class,Mercedes-Benz,SERTRALINE HYDROCHLORIDE
-Aspen,Chrysler,Marnatal F
-Mystique,Mercury,Superior Analgesic
-Maxima,Nissan,Shopko Hydrocortisone
-Legacy,Subaru,SULFAMETHOXAZOLE AND TRIMETHOPRIM
-Savana 1500,GMC,Depakote
-5 Series,BMW,Furosemide
-RX-8,Mazda,wal itin d
-Mustang,Ford,Ambien
-Malibu,Chevrolet,Axe
-Topaz,Mercury,Choice Personal Care Baby Fresh Scented Petroleum
-400SE,Mercedes-Benz,Minocycline Hydrochloride
-911,Porsche,Meijer SPF 8
-RL,Acura,Liver Tonic
-Grand Vitara,Suzuki,Liothyronine sodium
-928,Porsche,Bio Sweet Chestnut
-Ram 2500,Dodge,ACTIQ
+model,brand,garage
+RX-8,Mazda,Sauber
+Altima,Nissan,Sauber
+280ZX,Nissan,Sauber
+Grand Prix,Pontiac,Sauber
+Navigator,Lincoln,Red-Bull
+RX Hybrid,Lexus,Red-Bull
+Vandura G3500,GMC,Red-Bull
+Toronado,Oldsmobile,Red-Bull
+SLK-Class,Mercedes-Benz,Red-Bull
+Aspen,Chrysler,Red-Bull
+Mystique,Mercury,Scuderia Toro Rosso
+Maxima,Nissan,Scuderia Toro Rosso
+Legacy,Subaru,Scuderia Toro Rosso
+Savana 1500,GMC,Scuderia Toro Rosso
+5 Series,BMW,Haas
+RX-8,Mazda,Haas
+Mustang,Ford,Haas
+Malibu,Chevrolet,Haas
+Topaz,Mercury,Haas
+400SE,Mercedes-Benz,Haas
+911,Porsche,Haas
+RL,Acura,Haas
+Grand Vitara,Suzuki,Williams
+928,Porsche,Williams
+Ram 2500,Dodge,Williams
