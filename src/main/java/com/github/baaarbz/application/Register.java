@@ -27,6 +27,7 @@ public class Register {
     public static void garage() {
         String name = System.console().readLine("\t-Name: ");
 
+        // Search the garage, if it is already registered close the operation
         if (searchGarage(name) == null) {
             garages.add(new Garage(name));
         } else {
@@ -52,9 +53,11 @@ public class Register {
 
     public static void tournament(TypeRace typeTournament) {
         if (!checkAvailableRaces(typeTournament)) {
+            // If there are not available races close the operation
             System.console().writer().println("There are not registered " + typeTournament.name() + " races for this tournament\nCancelling operation...");
             return;
         }
+
         boolean isPrivate = Menu.askForConfirmation("Is it a private tournament? [y/N] ");
         String name = System.console().readLine("\t-Name: ");
         int price;
@@ -68,6 +71,9 @@ public class Register {
         Tournament tournament;
         if (isPrivate) {
             String owner = System.console().readLine("\t-Owner: ");
+            tournament = new Tournament(tournamentRaces, price, searchGarage(owner), name);
+
+            // Show the list of races available for the specified owner and type
             races.stream()
                     .filter(race -> race.getTypeRace().name().equalsIgnoreCase(typeTournament.name()) && race.isPrivate())
                     .filter(race -> race.getOwner().getName().equalsIgnoreCase(owner))
@@ -75,13 +81,15 @@ public class Register {
             races.stream()
                     .filter(race -> !race.isPrivate() && race.getTypeRace().name().equalsIgnoreCase(typeTournament.name()))
                     .forEach(race -> System.console().writer().println("[" + races.indexOf(race) + "] - " + race));
-            tournament = new Tournament(tournamentRaces, price, searchGarage(owner), name);
+
         } else {
+            tournament = new Tournament(tournamentRaces, price, name);
+            // Show the list of public races for the specified type
             races.stream()
                     .filter(race -> !race.isPrivate() && race.getTypeRace().name().equalsIgnoreCase(typeTournament.name()))
                     .forEach(race -> System.console().writer().println("[" + races.indexOf(race) + "] - " + race));
-            tournament = new Tournament(tournamentRaces, price, name);
         }
+        // Ask user for 10 races to create the tournament
         System.console().writer().println("Please, select 10 races for the tournament...");
         for (int i = 0; i < 10; i++) {
             tournament.getRaces().add(Simulation.getRace());
@@ -90,6 +98,7 @@ public class Register {
     }
 
     public static Garage searchGarage(String name) {
+        // Search a garage and return it
         Optional<Garage> garage = garages.stream()
                 .filter(g -> name.equals(g.getName()))
                 .findFirst();
@@ -100,6 +109,7 @@ public class Register {
     }
 
     public static boolean checkAvailableRaces(TypeRace typeRace) {
+        // Check if there are registered races of a specific type
         Optional<Race> result = races.stream()
                 .filter(race -> race.getTypeRace().equals(typeRace))
                 .findFirst();
@@ -107,6 +117,7 @@ public class Register {
     }
 
     public static boolean askForGarage(String garage) {
+        // In case the Garage is not registered ask the user to register it.
         boolean answer = Menu.askForConfirmation("The garage: " + garage + " does not exists.\nDo you want to register it? [y/N] ");
         if (answer) {
             garages.add(new Garage(garage));

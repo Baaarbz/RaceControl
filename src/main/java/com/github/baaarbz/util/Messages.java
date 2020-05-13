@@ -35,7 +35,8 @@ public interface Messages {
             "- list files -> List all valid files",
             "- list cars -> List all registered cars",
             "- list races -> List all registered races",
-            "- list tournaments -> List all registered tournaments"
+            "- list tournaments -> List all registered tournaments",
+            "- list garages -> List all registered garages",
     };
 
     String[] IMPORT_HELP = {

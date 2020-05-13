@@ -76,6 +76,7 @@ public class Backup {
     }
 
     private static void save(JSONObject obj) {
+        // Save the JSON file with the backup created
         try (FileWriter fw = new FileWriter(System.getProperty("user.dir") + "/backups/backup.json")) {
             fw.write(obj.toJSONString());
         } catch (IOException e) {
@@ -92,6 +93,7 @@ public class Backup {
         try {
             JSONObject object = (JSONObject) parser.parse(new FileReader(path.toString()));
 
+            // Load Array of cars
             JSONArray carsJson = (JSONArray) object.get("cars");
             for (Object o : carsJson) {
                 JSONObject car = (JSONObject) carsJson.get(carsJson.indexOf(o));
@@ -104,6 +106,7 @@ public class Backup {
                 cars.add(new Car(brand, model, Register.searchGarage(garage)));
             }
 
+            // Load array of races
             JSONArray racesJson = (JSONArray) object.get("races");
             for (Object o : racesJson) {
                 JSONObject race = (JSONObject) racesJson.get(racesJson.indexOf(o));
@@ -125,6 +128,7 @@ public class Backup {
                 }
             }
 
+            // Load array of tournaments
             JSONArray tournamentsJson = (JSONArray) object.get("tournaments");
             for (Object o : tournamentsJson) {
                 List<Race> racesTournament = new ArrayList<>();
