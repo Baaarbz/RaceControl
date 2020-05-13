@@ -1,11 +1,10 @@
 package com.github.baaarbz.application;
 
-import com.github.baaarbz.model.Car;
-import com.github.baaarbz.model.Garage;
-import com.github.baaarbz.model.Race;
-import com.github.baaarbz.model.TypeRace;
+import com.github.baaarbz.model.*;
 import com.github.baaarbz.util.Menu;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import static com.github.baaarbz.Application.*;
@@ -41,14 +40,53 @@ public class Register {
         if (!isPrivate) {
             races.add(new Race(name, typeRace));
         } else {
-            String garage = System.console().readLine("\t-Garage: ");
-            if (searchGarage(garage) == null) {
-                if (!askForGarage(garage)) {
+            String owner = System.console().readLine("\t-Owner: ");
+            if (searchGarage(owner) == null) {
+                if (!askForGarage(owner)) {
                     return;
                 }
             }
-            races.add(new Race(name, searchGarage(garage), typeRace));
+            races.add(new Race(name, searchGarage(owner), typeRace));
         }
+    }
+
+    public static void tournament(TypeRace typeTournament) {
+        if (!checkAvailableRaces(typeTournament)) {
+            System.console().writer().println("There are not registered " + typeTournament.name() + " races for this tournament\nCancelling operation...");
+            return;
+        }
+        boolean isPrivate = Menu.askForConfirmation("Is it a private tournament? [y/N] ");
+        String name = System.console().readLine("\t-Name: ");
+        int price;
+        try {
+            price = Integer.parseInt(System.console().readLine("\t-Price: "));
+        } catch (NumberFormatException e) {
+            System.console().writer().println("Wrong price or format error\nClosing operation...");
+            return;
+        }
+        List<Race> tournamentRaces = new ArrayList<>();
+        Tournament tournament;
+        if (isPrivate) {
+            String owner = System.console().readLine("\t-Owner: ");
+            races.stream()
+                    .filter(race -> race.getTypeRace().name().equalsIgnoreCase(typeTournament.name()) && race.isPrivate())
+                    .filter(race -> race.getOwner().getName().equalsIgnoreCase(owner))
+                    .forEach(race -> System.console().writer().println("[" + races.indexOf(race) + "] - " + race));
+            races.stream()
+                    .filter(race -> !race.isPrivate() && race.getTypeRace().name().equalsIgnoreCase(typeTournament.name()))
+                    .forEach(race -> System.console().writer().println("[" + races.indexOf(race) + "] - " + race));
+            tournament = new Tournament(tournamentRaces, price, searchGarage(owner), name);
+        } else {
+            races.stream()
+                    .filter(race -> !race.isPrivate() && race.getTypeRace().name().equalsIgnoreCase(typeTournament.name()))
+                    .forEach(race -> System.console().writer().println("[" + races.indexOf(race) + "] - " + race));
+            tournament = new Tournament(tournamentRaces, price, name);
+        }
+        System.console().writer().println("Please, select 10 races for the tournament...");
+        for (int i = 0; i < 10; i++) {
+            tournament.getRaces().add(Simulation.getRace());
+        }
+        tournaments.add(tournament);
     }
 
     public static Garage searchGarage(String name) {
@@ -59,6 +97,13 @@ public class Register {
             return garage.get();
         }
         return null;
+    }
+
+    public static boolean checkAvailableRaces(TypeRace typeRace) {
+        Optional<Race> result = races.stream()
+                .filter(race -> race.getTypeRace().equals(typeRace))
+                .findFirst();
+        return result.isPresent();
     }
 
     public static boolean askForGarage(String garage) {

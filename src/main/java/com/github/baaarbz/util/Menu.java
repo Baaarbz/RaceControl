@@ -1,11 +1,13 @@
 package com.github.baaarbz.util;
 
+import com.github.baaarbz.application.Backup;
 import com.github.baaarbz.application.Import;
 import com.github.baaarbz.application.Register;
 import com.github.baaarbz.application.Simulation;
 import com.github.baaarbz.model.TypeRace;
 
-import static com.github.baaarbz.Application.*;
+import static com.github.baaarbz.Application.cars;
+import static com.github.baaarbz.Application.tournaments;
 
 public class Menu {
 
@@ -28,6 +30,12 @@ public class Menu {
                 break;
             case "new race elimination":
                 Register.race(TypeRace.ELIMINATION);
+                break;
+            case "new tournament standard":
+                Register.tournament(TypeRace.STANDARD);
+                break;
+            case "new tournament elimination":
+                Register.tournament(TypeRace.ELIMINATION);
                 break;
             case "import help":
                 display(Messages.IMPORT_HELP);
@@ -57,11 +65,13 @@ public class Menu {
                 Simulation.initRace();
                 break;
             case "sim tournament":
+                Simulation.initTournament();
                 break;
             case "quit":
             case "q":
             case "exit":
             case "e":
+                Backup.create();
                 System.console().writer().println("Bye!");
                 System.exit(0);
                 break;
@@ -69,6 +79,7 @@ public class Menu {
             case "sim":
             case "new":
             case "new race":
+            case "new tournament":
             case "list":
                 display(Messages.NO_ARGS);
                 break;

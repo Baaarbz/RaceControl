@@ -73,7 +73,7 @@ public class Race {
     @Override
     public String toString() {
         if (isPrivate) {
-            return "[PRIVATE - " + owner + "] " + name + "type of race: " + typeRace;
+            return "[PRIVATE - " + owner + "] " + name + " | type of race: " + typeRace;
         } else {
             return "[PUBLIC] " + name + " | Type of race: " + typeRace;
         }

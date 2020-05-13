@@ -1,0 +1,342 @@
+{
+  "cars": [
+    {
+      "garage": "Sauber",
+      "model": "RX-8",
+      "brand": "Mazda"
+    },
+    {
+      "garage": "Sauber",
+      "model": "Altima",
+      "brand": "Nissan"
+    },
+    {
+      "garage": "Sauber",
+      "model": "280ZX",
+      "brand": "Nissan"
+    },
+    {
+      "garage": "Sauber",
+      "model": "Grand Prix",
+      "brand": "Pontiac"
+    },
+    {
+      "garage": "Red-Bull",
+      "model": "Navigator",
+      "brand": "Lincoln"
+    },
+    {
+      "garage": "Red-Bull",
+      "model": "RX Hybrid",
+      "brand": "Lexus"
+    },
+    {
+      "garage": "Red-Bull",
+      "model": "Vandura G3500",
+      "brand": "GMC"
+    },
+    {
+      "garage": "Red-Bull",
+      "model": "Toronado",
+      "brand": "Oldsmobile"
+    },
+    {
+      "garage": "Red-Bull",
+      "model": "SLK-Class",
+      "brand": "Mercedes-Benz"
+    },
+    {
+      "garage": "Red-Bull",
+      "model": "Aspen",
+      "brand": "Chrysler"
+    },
+    {
+      "garage": "Scuderia Toro Rosso",
+      "model": "Mystique",
+      "brand": "Mercury"
+    },
+    {
+      "garage": "Scuderia Toro Rosso",
+      "model": "Maxima",
+      "brand": "Nissan"
+    },
+    {
+      "garage": "Scuderia Toro Rosso",
+      "model": "Legacy",
+      "brand": "Subaru"
+    },
+    {
+      "garage": "Scuderia Toro Rosso",
+      "model": "Savana 1500",
+      "brand": "GMC"
+    },
+    {
+      "garage": "Haas",
+      "model": "5 Series",
+      "brand": "BMW"
+    },
+    {
+      "garage": "Haas",
+      "model": "RX-8",
+      "brand": "Mazda"
+    },
+    {
+      "garage": "Haas",
+      "model": "Mustang",
+      "brand": "Ford"
+    },
+    {
+      "garage": "Haas",
+      "model": "Malibu",
+      "brand": "Chevrolet"
+    },
+    {
+      "garage": "Haas",
+      "model": "Topaz",
+      "brand": "Mercury"
+    },
+    {
+      "garage": "Haas",
+      "model": "400SE",
+      "brand": "Mercedes-Benz"
+    },
+    {
+      "garage": "Haas",
+      "model": "911",
+      "brand": "Porsche"
+    },
+    {
+      "garage": "Haas",
+      "model": "RL",
+      "brand": "Acura"
+    },
+    {
+      "garage": "Williams",
+      "model": "Grand Vitara",
+      "brand": "Suzuki"
+    },
+    {
+      "garage": "Williams",
+      "model": "928",
+      "brand": "Porsche"
+    },
+    {
+      "garage": "Williams",
+      "model": "Ram 2500",
+      "brand": "Dodge"
+    },
+    {
+      "garage": "Sauber",
+      "model": "Chariot",
+      "brand": "Mitsubishi"
+    },
+    {
+      "garage": "Sauber",
+      "model": "SC",
+      "brand": "Lexus"
+    },
+    {
+      "garage": "Sauber",
+      "model": "Mighty Max",
+      "brand": "Mitsubishi"
+    },
+    {
+      "garage": "Red-Bull",
+      "model": "Element",
+      "brand": "Honda"
+    },
+    {
+      "garage": "Red-Bull",
+      "model": "Lucerne",
+      "brand": "Buick"
+    },
+    {
+      "garage": "Red-Bull",
+      "model": "Montego",
+      "brand": "Mercury"
+    },
+    {
+      "garage": "Red-Bull",
+      "model": "Rodeo Sport",
+      "brand": "Isuzu"
+    },
+    {
+      "garage": "Red-Bull",
+      "model": "E250",
+      "brand": "Ford"
+    },
+    {
+      "garage": "Red-Bull",
+      "model": "Land Cruiser",
+      "brand": "Toyota"
+    },
+    {
+      "garage": "Scuderia Toro Rosso",
+      "model": "Mirage",
+      "brand": "Mitsubishi"
+    },
+    {
+      "garage": "Scuderia Toro Rosso",
+      "model": "Malibu",
+      "brand": "Chevrolet"
+    },
+    {
+      "garage": "Scuderia Toro Rosso",
+      "model": "Frontier",
+      "brand": "Nissan"
+    },
+    {
+      "garage": "Haas",
+      "model": "480S",
+      "brand": "Ferrari"
+    }
+  ],
+  "tournaments": [
+    {
+      "races": [
+        {
+          "name": "GP Monaco",
+          "type": "ELIMINATION"
+        },
+        {
+          "name": "GP Oporto",
+          "type": "ELIMINATION"
+        },
+        {
+          "name": "GP Monaco",
+          "type": "ELIMINATION"
+        },
+        {
+          "name": "GP Oporto",
+          "type": "ELIMINATION"
+        },
+        {
+          "name": "GP Oporto",
+          "type": "ELIMINATION"
+        },
+        {
+          "name": "GP Oporto",
+          "type": "ELIMINATION"
+        },
+        {
+          "name": "GP Oporto",
+          "type": "ELIMINATION"
+        },
+        {
+          "name": "GP Monaco",
+          "type": "ELIMINATION"
+        },
+        {
+          "name": "GP Oporto",
+          "type": "ELIMINATION"
+        },
+        {
+          "name": "GP Monaco",
+          "type": "ELIMINATION"
+        }
+      ],
+      "price": 748009,
+      "name": "Elimination Formula",
+      "isPrivate": false
+    },
+    {
+      "owner": "Haas",
+      "races": [
+        {
+          "name": "GP Monza",
+          "type": "STANDARD"
+        },
+        {
+          "name": "GP SPA",
+          "type": "STANDARD"
+        },
+        {
+          "name": "GP Montmelo",
+          "type": "STANDARD"
+        },
+        {
+          "name": "GP Silverstone",
+          "type": "STANDARD"
+        },
+        {
+          "name": "GP Silverstone",
+          "type": "STANDARD"
+        },
+        {
+          "name": "GP Monza",
+          "type": "STANDARD"
+        },
+        {
+          "name": "GP SPA",
+          "type": "STANDARD"
+        },
+        {
+          "name": "GP Montmelo",
+          "type": "STANDARD"
+        },
+        {
+          "name": "GP Silverstone",
+          "type": "STANDARD"
+        },
+        {
+          "name": "GP SPA",
+          "type": "STANDARD"
+        }
+      ],
+      "price": 48855555,
+      "name": "Formula 1",
+      "isPrivate": true
+    }
+  ],
+  "races": [
+    {
+      "name": "GP Monza",
+      "isPrivate": false,
+      "type": "STANDARD"
+    },
+    {
+      "name": "GP SPA",
+      "isPrivate": false,
+      "type": "STANDARD"
+    },
+    {
+      "owner": "Haas",
+      "name": "GP Jerez",
+      "isPrivate": true,
+      "type": "ELIMINATION"
+    },
+    {
+      "name": "GP Montmelo",
+      "isPrivate": false,
+      "type": "STANDARD"
+    },
+    {
+      "name": "GP Monaco",
+      "isPrivate": false,
+      "type": "ELIMINATION"
+    },
+    {
+      "owner": "Red-Bull",
+      "name": "GP China",
+      "isPrivate": true,
+      "type": "STANDARD"
+    },
+    {
+      "name": "GP Silverstone",
+      "isPrivate": false,
+      "type": "STANDARD"
+    },
+    {
+      "owner": "Red-Bull",
+      "name": "GP Japon",
+      "isPrivate": true,
+      "type": "ELIMINATION"
+    },
+    {
+      "name": "GP Oporto",
+      "isPrivate": false,
+      "type": "ELIMINATION"
+    }
+  ],
+  "backupDate": "2020-05-13T13:08:26.791327400"
+}

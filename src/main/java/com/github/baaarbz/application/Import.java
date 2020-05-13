@@ -78,7 +78,7 @@ public class Import {
      * @param filename
      * @return path of file.
      */
-    private static Path getFilepath(String filename) {
+    public static Path getFilepath(String filename) {
         Optional<Path> path = null;
         try (Stream<Path> paths = Files.walk(Paths.get(System.getProperty("user.dir")))) {
             path = paths

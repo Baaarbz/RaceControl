@@ -23,7 +23,8 @@ public interface Messages {
     String[] NEW_HELP = {
             "\t\tRACE CONTROL - NEW HELP:",
             "- new car -> Create car",
-            "- new tournament -> Create tournament",
+            "- new tournament standard -> Create standard tournament",
+            "- new tournament elimination -> Create elimination tournament",
             "- new race standard -> Create standard race",
             "- new race elimination -> Create elimination race",
             "- new garage -> Create garage"

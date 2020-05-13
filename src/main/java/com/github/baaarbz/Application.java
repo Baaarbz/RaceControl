@@ -1,5 +1,6 @@
 package com.github.baaarbz;
 
+import com.github.baaarbz.application.Backup;
 import com.github.baaarbz.model.Car;
 import com.github.baaarbz.model.Garage;
 import com.github.baaarbz.model.Race;
@@ -28,6 +29,8 @@ public class Application {
     }
 
     public static void main(String[] args) {
+        Backup.load();
+        System.console().writer().println("Welcome to RaceControl! Write 'help' to get a list of commands");
         while (true) {
             Menu.options(System.console().readLine());
         }

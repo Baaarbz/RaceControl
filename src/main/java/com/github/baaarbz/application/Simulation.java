@@ -1,16 +1,12 @@
 package com.github.baaarbz.application;
 
-import com.github.baaarbz.model.Car;
-import com.github.baaarbz.model.Garage;
-import com.github.baaarbz.model.Race;
-import com.github.baaarbz.model.TypeRace;
+import com.github.baaarbz.model.*;
 import com.github.baaarbz.util.Menu;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static com.github.baaarbz.Application.cars;
-import static com.github.baaarbz.Application.races;
+import static com.github.baaarbz.Application.*;
 
 public class Simulation {
 
@@ -39,6 +35,14 @@ public class Simulation {
         }
     }
 
+    public static void initTournament() {
+        if (tournaments.isEmpty()) {
+            System.console().writer().println("There are not tournaments registered");
+        } else {
+
+        }
+    }
+
     private static void standard() {
         Collections.shuffle(carsToCompete);
         for (int i = 0; i < 3; i++) {
@@ -58,12 +62,12 @@ public class Simulation {
         }
     }
 
-    private static Race getRace() {
+    public static Race getRace() {
         try {
             int id = Integer.parseInt(System.console().readLine("\t-ID of race: "));
             return races.get(id);
         } catch (NumberFormatException e) {
-            System.console().writer().println("Wrong ID or format error\nClosing race simulation");
+            System.console().writer().println("Wrong ID or format error");
         }
         return null;
     }
@@ -76,6 +80,12 @@ public class Simulation {
                 .sorted(comparator)
                 .forEach(race -> System.console().writer().println("[" + races.indexOf(race) + "] - " + race));
 
+    }
+
+    public static void displayTournaments() {
+        tournaments.stream()
+                .sorted(Comparator.comparing(Tournament::isPrivate))
+                .forEach(tournament -> System.console().writer().println("[" + tournaments.indexOf(tournament) + "] - " + tournament));
     }
 
     private static void displayWinners() {

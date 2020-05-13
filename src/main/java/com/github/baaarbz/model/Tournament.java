@@ -1,28 +1,40 @@
 package com.github.baaarbz.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class Tournament {
 
+    private String name;
     private List<Race> races;
-    private List<Garage> garages;
+    private List<Car> cars;
     private int prize;
     private boolean isPrivate = false;
     private Garage owner;
 
-    public Tournament(List<Race> races, List<Garage> garages, int prize) {
+    public Tournament(List<Race> races, int prize, String name) {
         this.races = races;
-        this.garages = garages;
+        this.cars = new ArrayList<>();
         this.prize = prize;
+        this.name = name;
     }
 
-    public Tournament(List<Race> races, List<Garage> garages, int prize, Garage owner) {
+    public Tournament(List<Race> races, int prize, Garage owner, String name) {
         this.races = races;
-        this.garages = garages;
+        this.cars = new ArrayList<>();
         this.prize = prize;
         this.owner = owner;
         this.isPrivate = true;
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public List<Race> getRaces() {
@@ -33,12 +45,12 @@ public class Tournament {
         this.races = races;
     }
 
-    public List<Garage> getGarages() {
-        return garages;
+    public List<Car> getCars() {
+        return cars;
     }
 
-    public void setGarages(List<Garage> garages) {
-        this.garages = garages;
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
     }
 
     public int getPrize() {
@@ -72,24 +84,23 @@ public class Tournament {
         Tournament that = (Tournament) o;
         return prize == that.prize &&
                 isPrivate == that.isPrivate &&
+                Objects.equals(name, that.name) &&
                 Objects.equals(races, that.races) &&
-                Objects.equals(garages, that.garages) &&
+                Objects.equals(cars, that.cars) &&
                 Objects.equals(owner, that.owner);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(races, garages, prize, isPrivate, owner);
+        return Objects.hash(name, races, cars, prize, isPrivate, owner);
     }
 
     @Override
     public String toString() {
-        return "Tournament{" +
-                "races=" + races +
-                ", garages=" + garages +
-                ", prize=" + prize +
-                ", isPrivate=" + isPrivate +
-                ", owner=" + owner +
-                '}';
+        if (isPrivate) {
+            return "[PRIVATE - " + owner + "] " + name;
+        } else {
+            return "[PUBLIC] " + name;
+        }
     }
 }
