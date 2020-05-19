@@ -7,6 +7,6 @@ RUN mvn package -f /home/app
 
 FROM openjdk:8-jdk
 
-COPY --from=build /home/app/target/RaceControl-1.0-SNAPSHOT.jar /home/app/RaceControl.jar
+COPY --from=build /home/app/target/RaceControl.jar /home/app/RaceControl.jar
 
 ENTRYPOINT ["java", "-jar", "/home/app/RaceControl.jar"]

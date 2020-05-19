@@ -32,7 +32,7 @@ public class Application {
         Backup.load();
         System.console().writer().println("Welcome to RaceControl! Write 'help' to get a list of commands");
         while (true) {
-            Menu.options(System.console().readLine());
+            Menu.options(System.console().readLine("Race Control> "));
         }
     }
 }
